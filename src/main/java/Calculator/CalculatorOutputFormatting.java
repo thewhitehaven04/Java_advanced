@@ -1,4 +1,4 @@
-/**
+package Calculator; /**
  * @author German Bulavkin
  */
 
