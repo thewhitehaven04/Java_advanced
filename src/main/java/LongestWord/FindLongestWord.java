@@ -1,34 +1,41 @@
 package LongestWord;
 
-
 public class FindLongestWord {
-    String[] words;
+    private String[] words;
 
     /**
      * FindLongestWord class constructor.
      *
-     * @param arr array of Strings
+     * @param stringCount - the number of strings
      */
-    public FindLongestWord(String[] arr) {
-        this.words = arr;
+    public FindLongestWord(int stringCount, String[] words) {
+        this.words = new String[stringCount];
+        for (int i=0; i< words.length; i++)
+            this.words[i] = words[i];
     }
 
+
     /**
-     * Returns the longest string of those specified during the initialization.
+     * Returns the longest string of those specified during initialization
      *
      * @return the longest string. If two or more strings have the same length,
      * the first one of these is returned.
      */
     public String findLongest() {
         String longest = words[0];
-        for (int i = 1; i < words.length; i++) {
-            String wordBeingCompared = words[i];
-            if (wordBeingCompared.length() > longest.length()) {
-                longest = words[i];
+        try {
+            for (int i = 1; i < words.length; i++) {
+                String wordBeingCompared = words[i];
+                if (wordBeingCompared.length() > longest.length()) {
+                    longest = words[i];
+                }
             }
+            return longest;
         }
-        return longest;
+        catch (NullPointerException e){
+            System.out.printf("You need to input exactly %d strings.\n", words.length);
+        }
+        return "";
     }
-
 }
 
