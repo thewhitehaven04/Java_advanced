@@ -1,4 +1,4 @@
-package LongestWord;
+package Exercise1_2.LongestWord;
 
 public class FindLongestWord {
     private String[] words;

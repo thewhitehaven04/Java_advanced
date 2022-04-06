@@ -1,4 +1,4 @@
-/**
+package Exercise1_2; /**
  * @author German Bulavkin
  *
  * 1. Реализовать операции сложения, вычитания, умножения и деления для калькулятора из предыдущего задания
@@ -14,8 +14,8 @@
  * - Если в консоли ввести 1 - запуститься выполнение калькулятора
  * - Если в консоли ввести 2 - поиск максимального слова в массиве
  */
-import Calculator.CalculatorDispatch;
-import LongestWord.FindLongestWord;
+import Exercise1_2.Calculator.CalculatorDispatch;
+import Exercise1_2.LongestWord.FindLongestWord;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package Calculator;
+package Exercise1_2.Calculator;
 
 
 /**
