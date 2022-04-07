@@ -1,4 +1,4 @@
-package Exercise3;
+package Exercise3_1;
 
 import java.util.Arrays;
 import java.util.Random;
