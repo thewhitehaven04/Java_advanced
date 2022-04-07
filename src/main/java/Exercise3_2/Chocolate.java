@@ -1,6 +1,8 @@
 package Exercise3_2;
 
-
+/**
+ * Models Chocolate type gifts
+ */
 public class Chocolate extends Sweet {
 
     private final ChocolateType chocolateType;
@@ -10,6 +12,9 @@ public class Chocolate extends Sweet {
         this.chocolateType = chocolateType;
     }
 
+    /**
+     * Prints features of a given Chocolate instance
+     */
     @Override
     public void printSweetInfo() {
         System.out.printf("Gift name: %s\nChocolate type: %s\nGift price in russian roubles:" +

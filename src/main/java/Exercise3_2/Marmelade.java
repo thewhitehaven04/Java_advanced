@@ -1,5 +1,8 @@
 package Exercise3_2;
 
+/**
+ * Models Marmelade type sweets
+ */
 public class Marmelade extends Sweet {
 
     private final String color;
@@ -9,6 +12,9 @@ public class Marmelade extends Sweet {
         this.color = color;
     }
 
+    /**
+     * Prints features of a given Marmelade instance
+     */
     @Override
     public void printSweetInfo() {
         System.out.printf("Gift name: %s\nColor: %s\nGift price in russian roubles:" +

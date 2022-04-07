@@ -1,5 +1,8 @@
 package Exercise3_2;
 
+/**
+ * Models Marshmallow type sweets
+ */
 public class Marshmallow extends Sweet {
 
     private final String features;
@@ -9,6 +12,9 @@ public class Marshmallow extends Sweet {
         this.features = features;
     }
 
+    /**
+     * Prints features of a given Marshmallow instance
+     */
     @Override
     public void printSweetInfo() {
         System.out.printf("Gift name: %s\nUnique features: %s\nGift price in russian roubles:" +
