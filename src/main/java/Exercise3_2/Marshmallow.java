@@ -4,7 +4,7 @@ public class Marshmallow extends Sweet {
 
     private final String features;
 
-    public Marshmallow(String name, double weightKgs, double priceRub, String features){
+    public Marshmallow(String name, double weightKgs, double priceRub, String features) {
         super(name, weightKgs, priceRub);
         this.features = features;
     }

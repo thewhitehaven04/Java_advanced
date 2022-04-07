@@ -1,18 +1,13 @@
 package Exercise3_2;
 
 
-
 public class Chocolate extends Sweet {
 
-    private ChocolateType chocolateType;
+    private final ChocolateType chocolateType;
 
-    public Chocolate(String name, double weightKgs, double priceRub, ChocolateType chocolateType){
+    public Chocolate(String name, double weightKgs, double priceRub, ChocolateType chocolateType) {
         super(name, weightKgs, priceRub);
         this.chocolateType = chocolateType;
-    }
-
-    public Chocolate(String name, double weightKgs, double priceRub) {
-        super(name, weightKgs, priceRub);
     }
 
     @Override

@@ -1,35 +1,44 @@
 package Exercise3_2;
+/**2. Формируется сладкий подарок.
+ * - Он может включать в себя разные сладости (Candy, Jellybean, etc.)
+ * - У каждой сладости есть название, вес, цена и свой уникальный параметр
+ * - Необходимо собрать подарок из сладостей
+ * - Найти общий вес подарка, общую стоимость подарка
+ * - Вывести на консоль информацию о всех сладостях в подарке
+ */
 
-/** Contains collection of all gifts.
+
+/**
+ * Contains collection of all gifts.
  */
 public class GiftPackage {
     private final Sweet[] collection;
 
-    public GiftPackage(Sweet ...gifts){
+    public GiftPackage(Sweet... gifts) {
         this.collection = gifts;
     }
 
     /**
      * Prints gift details for each gift.
      */
-    public void printGiftInfo(){
-        for (Sweet gift: collection){
+    public void printGiftInfo() {
+        for (Sweet gift : collection) {
             gift.printSweetInfo();
         }
     }
 
-    public void printPackagePrice(){
+    public void printPackagePrice() {
         double total = 0;
-        for (Sweet gift: collection){
-            total+= gift.getPriceRub();
+        for (Sweet gift : collection) {
+            total += gift.getPriceRub();
         }
         System.out.printf("Total price: %.2f rub.\n", total);
     }
 
-    public void printTotalWeight(){
-        double total =0;
-        for (Sweet gift: collection){
-            total+= gift.getWeightKgs();
+    public void printTotalWeight() {
+        double total = 0;
+        for (Sweet gift : collection) {
+            total += gift.getWeightKgs();
         }
         System.out.printf("Total weight: %.2f kg\n", total);
     }
@@ -42,8 +51,8 @@ public class GiftPackage {
         Sweet palmaFoods = new Marmelade("Palma Foods", 0.5, 299.00, "Yellow");
 
         GiftPackage gift = new GiftPackage(toblerone, babaevsky, ms, palmaFoods);
-        gift.printGiftInfo();
         gift.printTotalWeight();
         gift.printPackagePrice();
+        gift.printGiftInfo();
     }
 }

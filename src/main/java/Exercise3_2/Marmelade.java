@@ -4,7 +4,7 @@ public class Marmelade extends Sweet {
 
     private final String color;
 
-    public Marmelade(String name, double weightKgs, double priceRub, String color){
+    public Marmelade(String name, double weightKgs, double priceRub, String color) {
         super(name, weightKgs, priceRub);
         this.color = color;
     }

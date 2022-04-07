@@ -15,18 +15,23 @@ public abstract class Sweet {
         this.priceRub = priceRub;
     }
 
-    /** Prints gift details.
+    /**
+     * Prints gift details.
      */
     public abstract void printSweetInfo();
 
-    /** Get sweets weight in kilos.
+    /**
+     * Get sweets weight in kilos.
+     *
      * @return weightKgs weight in kilos
      */
     public double getWeightKgs() {
         return weightKgs;
     }
 
-    /** Get sweets price in roubles
+    /**
+     * Get sweets price in roubles
+     *
      * @return priceRub - price in roubles
      */
     public double getPriceRub() {
@@ -35,6 +40,7 @@ public abstract class Sweet {
 
     /**
      * Get the sweet's name.
+     *
      * @return name - the sweet's name
      */
     public String getName() {
