@@ -11,7 +11,7 @@ class Calculator {
      *
      * @param x Double class instance;
      * @param y Double class instance;
-     * @return the sum of the floats.
+     * @return the sum of the doubles.
      */
     Double add(Double x, Double y) {
         return x + y;
@@ -22,7 +22,7 @@ class Calculator {
      *
      * @param x Double class instance;
      * @param y Double class instance;
-     * @return the difference between the two floats.
+     * @return the difference between the two doubles.
      */
     Double subtract(Double x, Double y) {
         return x - y;
@@ -33,18 +33,18 @@ class Calculator {
      *
      * @param x Double class instance;
      * @param y Double class instance;
-     * @return the product of the floats
+     * @return the product of the doubles
      */
     Double multiply(Double x, Double y) {
         return x * y;
     }
 
     /**
-     * Returns the quotient of the floats.
+     * Returns the quotient of the double-precision floating point values
      *
      * @param x Double class instance;
      * @param y Double class instance;
-     * @return the quotient of the floats.
+     * @return the quotient of the doubles.
      */
     Double divide(Double x, Double y) {
         return x / y;
