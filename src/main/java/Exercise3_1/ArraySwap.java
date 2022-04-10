@@ -62,7 +62,7 @@ public class ArraySwap {
 
         Random random = new Random();
         arr = random.ints(DEFAULT_ARRAY_DIMENSION, LOWER_BOUND, UPPER_BOUND + 1).toArray();
-        int[] positives = Arrays.stream(arr).filter(number -> number >= 0).toArray();
+        int[] positives = Arrays.stream(arr).filter(number -> number > 0).toArray();
         int[] negatives = Arrays.stream(arr).filter(number -> number < 0).toArray();
 
         int lowestPositive = ArraySwap.findIntMin(positives);
