@@ -13,12 +13,52 @@ public class OOPCalculator {
     private final Calculator calculator;
     private final Printer printer;
 
-    public OOPCalculator() {
-        this.calculator = new Calculator();
-        this.printer = new Printer();
+    private String op;
+
+    public String getOp() {
+        return op;
     }
 
-    private Double handleInput(String op, Double firstArg, Double secondArg) {
+    public Double getFirstArg() {
+        return firstArg;
+    }
+
+    public Double getSecondArg() {
+        return secondArg;
+    }
+
+    private Double firstArg;
+    private Double secondArg;
+
+    public void setOp(String op) {
+        this.op = op;
+    }
+
+    public void setFirstArg(Double firstArg) {
+        this.firstArg = firstArg;
+    }
+
+    public void setSecondArg(Double secondArg) {
+        this.secondArg = secondArg;
+    }
+
+    public OOPCalculator(String op, double firstArg, double secondArg) {
+        this.calculator = new Calculator();
+        this.printer = new Printer();
+
+        this.op = op;
+        this.firstArg = firstArg;
+        this.secondArg = secondArg;
+    }
+
+    public void setNew(String op, double firstArg, double secondArg) {
+        this.op = op;
+        this.firstArg = firstArg;
+        this.secondArg = secondArg;
+    }
+
+
+    public Double perform() {
         final String addOp = "+";
         final String subtractOp = "-";
         final String multiplyOp = "*";
@@ -39,38 +79,26 @@ public class OOPCalculator {
         }
     }
 
-    /**
-     * Executes calculator operation loop.
-     */
-    public void run() {
-        System.out.println("In order to exit, input 'exit' (without quotes).");
-        Scanner scanner = new Scanner(System.in);
-        while (true) {
-            System.out.println("Input an operation. The supported operations are: " + "addition(+) and subtraction(-), multiplication(*) and division(/)");
-            String op = scanner.nextLine();
-            if (op.equals("exit")) {
-                // closing the Scanner instance
-                System.out.println("Shutting down.");
-                break;
-            } else {
-                System.out.println("Input the first operand");
-                double firstArg = Double.parseDouble(scanner.nextLine());
-
-                System.out.println("Input the second operand");
-                double secondArg = Double.parseDouble(scanner.nextLine());
-
-                Double output = handleInput(op, firstArg, secondArg);
-                printer.printValue(firstArg, secondArg, op, output);
-            }
-        }
-        scanner.close();
+    public void print(){
+        double result = this.perform();
+        printer.printValue(firstArg, secondArg, op, result);
     }
 
-    /**
-     * Starts the calculator.
-     */
+
     public static void main(String[] args) {
-        OOPCalculator oopCalculator = new OOPCalculator();
-        oopCalculator.run();
+        OOPCalculator oopCalculator = new OOPCalculator("*", 2, 5);
+        oopCalculator.print();
+
+        oopCalculator.setNew("/", 19, 3);
+        oopCalculator.print();
+
+        oopCalculator.setNew("+", 12, 14);
+        oopCalculator.print();
+
+        oopCalculator.setFirstArg(-100.0);
+        oopCalculator.setSecondArg(23.0);
+        oopCalculator.setOp("-");
+        System.out.printf("%.3f %s %.3f = %.3f", oopCalculator.getFirstArg(), oopCalculator.getOp(),
+                oopCalculator.getSecondArg(), oopCalculator.perform());
     }
 }
