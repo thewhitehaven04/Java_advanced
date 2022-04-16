@@ -1,7 +1,5 @@
 package Exercise4_OOPCalculator;
 
-import java.util.Scanner;
-
 /**
  * Реализовать калькулятор в стиле ООП
  *
@@ -10,95 +8,45 @@ import java.util.Scanner;
 
 public class OOPCalculator {
 
-    private final Calculator calculator;
     private final Printer printer;
+    private final Calculator calculator;
+    private double lastResult;
 
-    private String op;
-
-    public String getOp() {
-        return op;
-    }
-
-    public Double getFirstArg() {
-        return firstArg;
-    }
-
-    public Double getSecondArg() {
-        return secondArg;
-    }
-
-    private Double firstArg;
-    private Double secondArg;
-
-    public void setOp(String op) {
-        this.op = op;
-    }
-
-    public void setFirstArg(Double firstArg) {
-        this.firstArg = firstArg;
-    }
-
-    public void setSecondArg(Double secondArg) {
-        this.secondArg = secondArg;
-    }
-
-    public OOPCalculator(String op, double firstArg, double secondArg) {
-        this.calculator = new Calculator();
+    public OOPCalculator() {
+        this.calculator = new Calculator(Double.NaN, Double.NaN, "+");
+        this.lastResult = Double.NaN;
         this.printer = new Printer();
-
-        this.op = op;
-        this.firstArg = firstArg;
-        this.secondArg = secondArg;
     }
 
-    public void setNew(String op, double firstArg, double secondArg) {
-        this.op = op;
-        this.firstArg = firstArg;
-        this.secondArg = secondArg;
+    public double perform(double firstArg, double secondArg, String op) {
+        calculator.setFirstArg(firstArg);
+        calculator.setSecondArg(secondArg);
+        calculator.setOp(op);
+        this.lastResult = calculator.perform();
+        return this.lastResult;
     }
 
-
-    public Double perform() {
-        final String addOp = "+";
-        final String subtractOp = "-";
-        final String multiplyOp = "*";
-        final String divisionOp = "/";
-
-        switch (op) {
-            case addOp:
-                return calculator.add(firstArg, secondArg);
-            case multiplyOp:
-                return calculator.multiply(firstArg, secondArg);
-            case subtractOp:
-                return calculator.subtract(firstArg, secondArg);
-            case divisionOp:
-                return calculator.divide(firstArg, secondArg);
-            default:
-                System.out.println("An unsupported operation was provided. " + "Please input one of the supported operations (see above).");
-                return Double.NaN;
-        }
+    public void print() {
+        printer.printValue(this.calculator.getFirstArg(), this.calculator.getSecondArg(),
+                this.calculator.getOp(), this.lastResult);
     }
-
-    public void print(){
-        double result = this.perform();
-        printer.printValue(firstArg, secondArg, op, result);
-    }
-
 
     public static void main(String[] args) {
-        OOPCalculator oopCalculator = new OOPCalculator("*", 2, 5);
+        OOPCalculator oopCalculator = new OOPCalculator();
+        oopCalculator.perform(5, 10, "/");
         oopCalculator.print();
 
-        oopCalculator.setNew("/", 19, 3);
+        oopCalculator.perform(10.3, -2, "*");
         oopCalculator.print();
 
-        oopCalculator.setNew("+", 12, 14);
+        oopCalculator.perform(6.421, 10, "+");
         oopCalculator.print();
 
-        oopCalculator.setFirstArg(-100.0);
-        oopCalculator.setSecondArg(23.0);
-        oopCalculator.setOp("-");
-        System.out.printf("%.3f %s %.3f = %.3f", oopCalculator.getFirstArg(), oopCalculator.getOp(),
-                oopCalculator.getSecondArg(), oopCalculator.perform());
+        oopCalculator.perform(3, Math.PI, "-");
+        oopCalculator.print();
+
+        // invalid op
+        oopCalculator.perform(3, -9, "someop");
+        oopCalculator.print();
     }
 }
