@@ -51,7 +51,7 @@ class Calculator {
     /**
      * Performs one of the supported operations and returns the result.
      */
-    public double perform() {
+    public double perform() throws ArithmeticException {
         double res = Double.NaN;
         switch (this.op) {
             case "+":
@@ -64,6 +64,9 @@ class Calculator {
                 res = firstArg * secondArg;
                 break;
             case "/":
+                if (this.secondArg == 0) {
+                    throw new ArithmeticException();
+                }
                 res = firstArg / secondArg;
                 break;
         }

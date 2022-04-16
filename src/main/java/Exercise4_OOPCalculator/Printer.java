@@ -14,6 +14,8 @@ class Printer {
      * @param res       operation result
      */
     void printValue(double firstArg, double secondArg, String op, double res) {
-        System.out.printf(Printer.DEFAULT_DOUBLE_OUTPUT_FORMAT, firstArg, op, secondArg, res);
+        if (!(Double.isNaN(firstArg) || Double.isNaN(secondArg) || Double.isNaN(res))) {
+            System.out.printf(Printer.DEFAULT_DOUBLE_OUTPUT_FORMAT, firstArg, op, secondArg, res);
+        }
     }
 }
