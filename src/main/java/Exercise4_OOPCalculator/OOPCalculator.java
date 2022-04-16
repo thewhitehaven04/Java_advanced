@@ -1,9 +1,8 @@
 package Exercise4_OOPCalculator;
 
 /**
- * Реализовать калькулятор в стиле ООП
- *
- * @author German Bulavkin
+ * Описание задания
+ * Добавить обработку исключений в задание с ООП калькулятора (например, исключение может возникнуть при делении на ноль)
  */
 
 public class OOPCalculator {
@@ -21,14 +20,24 @@ public class OOPCalculator {
     public double perform(double firstArg, double secondArg, String op) {
         calculator.setFirstArg(firstArg);
         calculator.setSecondArg(secondArg);
-        calculator.setOp(op);
-        this.lastResult = calculator.perform();
+
+        try {
+            calculator.setOp(op);
+            this.lastResult = calculator.perform();
+        }
+        catch (IllegalArgumentException e){
+            System.out.println("Please, pass a valid operation to the method");
+            System.out.println("The valid operations are: /, *, +, -");
+            this.lastResult = Double.NaN;
+        }
         return this.lastResult;
     }
 
     public void print() {
-        printer.printValue(this.calculator.getFirstArg(), this.calculator.getSecondArg(),
-                this.calculator.getOp(), this.lastResult);
+        printer.printValue(this.calculator.getFirstArg(),
+                this.calculator.getSecondArg(),
+                this.calculator.getOp(),
+                this.lastResult);
     }
 
     public static void main(String[] args) {
@@ -45,8 +54,8 @@ public class OOPCalculator {
         oopCalculator.perform(3, Math.PI, "-");
         oopCalculator.print();
 
-        // invalid op
-        oopCalculator.perform(3, -9, "someop");
+        // trigger an exception
+        oopCalculator.perform(3.7, Math.E, "what is this op");
         oopCalculator.print();
     }
 }
